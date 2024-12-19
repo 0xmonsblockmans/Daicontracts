@@ -15,10 +15,14 @@ interface IVat {
         uint256 art   // [wad]
     );
     function grab(bytes32,address,address,address,int256,int256) external;
-    function hope(address) external;
-    function nope(address) external;
     function suck(address,address,uint256) external;
     function move(address,address,uint256) external;
     function flux(bytes32,address,address,uint256) external;
     function slip(bytes32,address,int) external;
+    function file(bytes32, bytes32, uint) external;
+    function dai (address) external view returns (uint);
+    function sin (address) external view returns (uint);
+    function heal(uint256) external;
+    function hope(address) external;
+    function nope(address) external;
 }

@@ -21,4 +21,4 @@ contract DeployScript is Script {
     }
 }
 
-// forge script script/Vat.s.sol:DeployScript --rpc-url $RPC_URL --broadcast --verify -vvvv
+// forge script script/Vat.s.sol:DeployScript --rpc-url $RPC_URL --broadcast --etherscan-api-key $API_KEY --verify -vvvv
