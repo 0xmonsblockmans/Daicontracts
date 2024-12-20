@@ -15,6 +15,7 @@ import { Vow } from '../src/Vow.sol';
 import { Flapper } from "../src/Flapper.sol";
 import { Flopper } from "../src/Flopper.sol";
 import { DSToken } from "../src/Token.sol";
+import { Jug } from "../src/Jug.sol";
 
 contract DeployScript is Script {
     Dai public dai;
@@ -31,6 +32,7 @@ contract DeployScript is Script {
     Flapper public flapper;
     Flopper public flopper;
     DSToken public dstoken;
+    Jug public jug;
 
     function setUp() public {}
 
@@ -39,20 +41,22 @@ contract DeployScript is Script {
         address account = vm.addr(privateKey);
         vm.startBroadcast(privateKey);
         uint256 chainId = vm.envUint("CHAIN_ID");
-        dai = new Dai(chainId);
-        vat = new Vat();
-        bat = new BAToken(account, account);
-        daiJoin = new DaiJoin(address(vat), address(dai));
-        ethJoin = new ETHJoin(address(vat), "ETH-A");
-        gemJoin = new GemJoin(address(vat), "GEM-A", address(bat));
-        spotter = new Spotter(address(vat));
-        dog = new Dog(address(vat));
-        clipper = new Clipper(address(vat), address(spotter), address(dog), "ETH-A");
-        abacus = new StairstepExponentialDecrease();
-        flapper = new Flapper(address(vat), address(dai));
-        flopper = new Flopper(address(vat), address(dai));
-        vow = new Vow(address(vat), address(flapper), address(flopper));
-        dstoken = new DSToken("DSToken");
+        // dai = new Dai(chainId);
+        // vat = new Vat();
+        // bat = new BAToken(account, account);
+        // daiJoin = new DaiJoin(address(vat), address(dai));
+        // ethJoin = new ETHJoin(address(vat), "ETH-A");
+        // gemJoin = new GemJoin(address(vat), "GEM-A", address(bat));
+        // spotter = new Spotter(address(vat));
+        // dog = new Dog(address(vat));
+        // clipper = new Clipper(address(vat), address(spotter), address(dog), "ETH-A");
+        // abacus = new StairstepExponentialDecrease();
+        // flapper = new Flapper(address(vat), address(dai));
+        // flopper = new Flopper(address(vat), address(dai));
+        // vow = new Vow(address(vat), address(flapper), address(flopper));
+        // dstoken = new DSToken("DSToken");
+        address vat_address = 0xEDD21ea2F824d11e89BdF936F3A4699A0FF2B705;
+        jug = new Jug(vat_address);
         vm.stopBroadcast();
     }
 }
@@ -73,3 +77,4 @@ contract DeployScript is Script {
 // [src/Flopper.sol:Flopper] 0x24d0fFe2EdbB223975531d78fbe94654B1b9BE73
 // [src/Vow.sol:Vow] 0xf8CA62C21bF239d711E09849104436ff528F00d2
 // [src/Token.sol:DSToken] 0x69AF45B7ed366b4656c8EaC7FBd2b0C52341Ef1c
+// [src/Jug.sol:Jug] 0xf94D5c83304F147eA48237Bb0cD9Ac73b93099B1

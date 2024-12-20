@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 
 interface IVat {
     function ilks(bytes32) external view returns (
-        uint256 Art,  // [wad]
+        uint256 art,  // [wad]
         uint256 rate, // [ray]
         uint256 spot, // [ray]
         uint256 line, // [rad]
@@ -25,4 +25,5 @@ interface IVat {
     function heal(uint256) external;
     function hope(address) external;
     function nope(address) external;
+    function fold(bytes32,address,int) external;
 }
